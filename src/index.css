@@ -1,13 +1,141 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  body {
+    @apply bg-Accent font-Montserrat;
+  }
+  #root {
+    @apply min-h-screen py-6 flex flex-col;
+  }
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-blue-gray-50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-Primary rounded-3xl ;
+  }
+
+  /* START GLOPALS  */
+  /* ========================================= */
+  .btn-primary {
+    @apply rounded-full cursor-pointer bg-Primary border border-Primary text-white font-semibold transition-colors duration-300 ease-in-out flex gap-3 justify-center items-center hover:text-Primary hover:bg-white;
+  }
+  .btn-primary-alt {
+    @apply rounded-full cursor-pointer bg-white border border-Primary text-Primary font-semibold transition-colors duration-300 ease-in-out flex gap-3 justify-center items-center hover:text-white hover:bg-Primary;
+  }
+  .btn-secondary {
+    @apply rounded-full cursor-pointer bg-Secondary border border-Secondary text-white font-semibold transition-colors duration-300 ease-in-out flex gap-3 justify-center items-center hover:text-Secondary hover:bg-white;
+  }
+  .btn-secondary-alt {
+    @apply rounded-full cursor-pointer bg-white border border-Secondary text-Secondary font-semibold transition-colors duration-300 ease-in-out flex gap-3 justify-center items-center hover:text-white hover:bg-Secondary;
+  }
+  .btn-sm {
+    @apply py-3 px-6;
+  }
+  .btn-lg {
+    @apply py-4 px-8;
+  }
+  /* END GLOPALS  */
+  /* ========================================= */
+
+  /* START HEADER  */
+  /* ========================================= */
+  .peanut-header {
+    @apply sticky top-6 z-50;
+  }
+  .peanut-header-contaianer {
+    @apply bg-white py-4 rounded-[20px] px-8 flex justify-between items-center gap-6 lg:gap-24;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  .peanut-header-contaianer .nav-link {
+    @apply text-sm text-Text font-semibold transition-colors duration-300 ease-in-out flex items-center gap-1.5 hover:text-Secondary;
+  }
+  .peanut-header-contaianer .nav-link.active {
+    @apply text-Secondary;
+  }
+  .peanut-header-contaianer .nav-link svg path {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+  .peanut-header-contaianer .nav-link:hover svg path,
+  .peanut-header-contaianer .nav-link.active svg path {
+    @apply stroke-Secondary fill-Secondary;
+  }
+
+  .peanut-header-contaianer .mobile-menu-container {
+    @apply fixed lg:static top-0 left-0 size-full lg:size-auto bg-white lg:bg-transparent flex p-8 lg:p-0 lg:flex-1 transition-opacity opacity-0 lg:opacity-100 invisible lg:visible;
+  }
+  .peanut-header-contaianer .mobile-menu-container.active {
+    @apply visible opacity-100;
+  }
+  /* END HEADER  */
+  /* ========================================= */
+
+  /* START FOOTER  */
+  /* ========================================= */
+  .peanut-footer-contaianer {
+    @apply bg-white py-4 rounded-[20px] px-8 flex items-center gap-24;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  .peanut-footer-contaianer .nav-link {
+    @apply text-xs text-Text font-semibold transition-colors duration-300 ease-in-out flex items-center gap-1.5 hover:text-Secondary;
+  }
+  .peanut-footer-contaianer .nav-link.active {
+    @apply text-Secondary;
+  }
+  .peanut-footer-contaianer .footer-social {
+    @apply flex items-center gap-3;
+  }
+  .peanut-footer-contaianer .footer-social-item {
+    @apply flex items-center justify-center size-7 rounded-full bg-Tertiary;
+  }
+  /* END FOOTER  */
+  /* ========================================= */
+
+  /* START HOME  */
+  /* ========================================= */
+  .bundle-card {
+    @apply bg-white py-6 px-4 rounded-xl flex flex-col gap-5;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+  /* END HOME  */
+  /* ========================================= */
+
+  /* START CART  */
+  /* ========================================= */
+  .cart-item {
+    @apply bg-white p-8 rounded-2xl flex flex-col lg:flex-row  lg:items-end gap-10 lg:gap-6 border border-transparent hover:border-Secondary transition-colors duration-300 ease-in-out lg:sticky lg:top-32;
+  }
+  .cart-item .img-container {
+    @apply bg-Light  rounded-2xl flex items-center justify-center shrink-0 h-32 lg:size-40 overflow-hidden;
+  }
+  .proceed-payment {
+    @apply bg-white py-8 px-6 rounded-2xl;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+  /* END CART  */
+  /* ========================================= */
+
+  /* START WINNER  */
+  /* ========================================= */
+  /* .winner-card {
+    @apply ;
+  } */
+  .winner-card .img-container {
+    @apply size-[100px] rounded-full border-4 border-Secondary overflow-hidden -mb-[50px] mx-auto relative z-[1];
+  }
+  .winner-card .img-container img {
+    @apply w-full h-full object-cover;
+  }
+  .winner-card .winner-card-content {
+    @apply bg-white pt-[60px] p-8 rounded-xl flex flex-col gap-5;
+  }
+  /* END WINNER  */
+  /* ========================================= */
 }
