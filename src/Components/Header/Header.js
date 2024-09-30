@@ -50,16 +50,6 @@ const Header = () => {
                                             Favorites
                                         </NavLink>
                                     </li>
-                                    <li>
-                                        <NavLink to="/tickets" className="nav-link">
-                                            Tickets
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/draws" className="nav-link">
-                                            Draws
-                                        </NavLink>
-                                    </li>
                                 </ul>
                             </nav>
                             <div className="flex justify-evenly lg:justify-start items-center gap-8 xl:gap-12">

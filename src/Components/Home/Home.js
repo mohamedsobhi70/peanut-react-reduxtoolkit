@@ -22,7 +22,7 @@ const Home = () => {
           <div className="absolute size-full top-0 left-0 bg-gradient-to-b from-transparent to-[#000000b0]"></div>
           <img
             src={heroimg} alt='heroimg' className="w-full h-full object-cover" />
-          <p className="absolute top-1/2 -translate-x-1/2 left-1/2 text-white text-xl lg:text-3xl font-bold w-full lg:w-1/2 text-center leading-relaxed">
+          <p className="absolute top-1/2 -translate-x-1/2 left-1/2 text-white text-xl lg:text-3xl font-bold w-full lg:w-1/2 text-center leading-relaxed px-3">
             Summers SALE up to 50% OFF what are you wating for ,Make your feet as comfortable as walking on the beach
           </p>
         </div>

@@ -1,17 +1,20 @@
 import React from "react";
 import { addToCart, reduceItemAmount, removeFromCart } from "../../../features/slices/Cartslice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Cartitem = ({ item }) => {
     const dispatch = useDispatch();
     return <div className="cart-item">
         <div className="flex flex-col lg:flex-row lg:items-center gap-6 flex-1">
-            <div className="img-container">
-                <img src={item.thumbnail} className="w-full h-full object-cover" alt="" />
-            </div>
+            <Link to={`/productdetails/${item.id}`} className="img-container">
+                <img src={item.thumbnail} className="w-full h-full object-cover" alt={item.title} />
+            </Link>
             <div className="flex flex-col items-center lg:items-start gap-6">
                 <h3 className="text-Dark font-semibold leading-relaxed">
-                    {item.title}
+                    <Link to={`/productdetails/${item.id}`}>
+                        {item.title}
+                    </Link>
                 </h3>
                 <div className="flex items-center gap-8">
                     <button className="rounded-full bg-Accent size-8 flex items-center justify-center " onClick={() => dispatch(reduceItemAmount(item))}>
@@ -30,8 +33,8 @@ const Cartitem = ({ item }) => {
                     </button>
                 </div>
                 <strong className="text-2xl font-bold text-Primary flex gap-2 items-end">
-                    EGP {(item.price - (item.price * item.discountPercentage / 100)).toFixed(2)}
-                     <del className="text-sm text-Secondary">{item.price}</del>
+                    EGP {((+item.price - (+item.price * +item.discountPercentage / 100)) * +item.cartAmount).toFixed(2)}
+                    <del className="text-sm text-Secondary">{(+item.price * +item.cartAmount).toFixed(2)}</del>
                 </strong>
             </div>
         </div>

@@ -15,7 +15,6 @@ const Producitem = ({ item }) => {
             dispatch(addToWishList(item));
         }
     };
-    console.log(wishList);
 
     return (
         <div className="bundle-card" >
@@ -58,8 +57,11 @@ const Producitem = ({ item }) => {
             </div>
 
             <div className="flex flex-col items-center gap-4">
-                <Link to={`/productdetails/${item.id}`} className=" h-80 overflow-hidden">
+                <Link to={`/productdetails/${item.id}`} className="relative h-80 overflow-hidden w-full">
                     <img src={item.thumbnail} alt={item.title} className='object-contain h-full w-full' />
+                    <strong className="absolute bottom-2 end-2 bg-Error text-white text-[10px] font-semibold p-2 rounded-full">
+                       { item.discountPercentage}% OFF
+                    </strong>
                 </Link>
                 <h3 className='text-Dark text-lg font-semibold text-center flex flex-col'>
                     <Link to={`/productdetails/${item.id}`}>
@@ -82,7 +84,7 @@ const Producitem = ({ item }) => {
                         </del>
                     </div>
                 </div>
-                  <button className='btn-secondary btn-lg' onClick={() => dispatch(addToCart(item))} >
+                <button className='btn-secondary btn-lg' onClick={() => dispatch(addToCart(item))} >
                     Add to Cart
                 </button>
             </div>

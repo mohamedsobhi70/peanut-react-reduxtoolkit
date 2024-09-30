@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 const Wishlist = () => {
     let wishList = useSelector(state => state.favourite)
     const dispatch = useDispatch();
-    console.log(wishList);
 
     let items = wishList.map((item, index) => <div key={index} className="bundle-card items-start">
-        <div className="h-52 overflow-hidden w-full">
+        <Link className="h-52 overflow-hidden w-full" to={`/productdetails/${item.id}`}>
             <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
-        </div>
+        </Link>
 
         <h2 className="text-lg font-bold">
             <Link to={`/productdetails/${item.id}`}>
@@ -22,6 +21,7 @@ const Wishlist = () => {
         <p className="text-sm line-clamp-3 font-semibold">
             {item.description}
         </p>
+
         <div className="flex items-end gap-2">
             <p className="text-base font-semibold">
                 {item.price - (item.price * item.discountPercentage / 100)}
